@@ -1,5 +1,4 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/material.dart';
 
 class BillScreen extends StatefulWidget {
   const BillScreen({super.key});
@@ -11,6 +10,6 @@ class BillScreen extends StatefulWidget {
 class _BillScreenState extends State<BillScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container();
   }
 }
