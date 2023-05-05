@@ -44,7 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           // Google Pay icon button
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/bill');
+            },
             icon: Image.asset('assets/google-pay.png'),
           ),
           const SizedBox(width: 20),
