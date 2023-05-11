@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool bisSelected = false;
   bool lisSelected = false;
   bool disSelected = false;
-
+  Color buttonColor = const Color(0xFF40CC7D);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.fromLTRB(30, 0, 0, 10),
+                  padding: const EdgeInsets.fromLTRB(30, 0, 0, 10),
                   child: Text(
                     "Today's food",
                     style: GoogleFonts.inter(
@@ -92,13 +92,19 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 50),
           ElevatedButton(
             style: ButtonStyle(
+              overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.pressed)) {
+                    return const Color(0xFF0A4624);
+                  }
+                },
+              ),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
                 ),
               ),
-              backgroundColor:
-                  MaterialStateProperty.all(const Color(0xFF40CC7D)),
+              backgroundColor: MaterialStateProperty.all(buttonColor),
               padding: const MaterialStatePropertyAll(
                   EdgeInsets.symmetric(vertical: 14, horizontal: 130)),
             ),
