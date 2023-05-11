@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "861596433868",
+    "project_id": "kaycho-f77f0",
+    "storage_bucket": "kaycho-f77f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861596433868:android:a0e4ffcd1335d2274bf169",
+        "android_client_info": {
+          "package_name": "com.example.kayicho"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861596433868-14hdikm0fjip6res32gp52jv6tlck7uh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOG0D1AnCnEziV700UwTtrGKLzIS1_EZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "861596433868-14hdikm0fjip6res32gp52jv6tlck7uh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
