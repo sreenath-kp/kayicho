@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         //calender
         children: [
-          calendar,
+          const Calender(),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 15),
             padding: const EdgeInsets.symmetric(vertical: 15),
