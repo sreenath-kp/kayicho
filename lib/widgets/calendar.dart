@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kayicho/methods/day_view.dart';
+import 'package:kayicho/widgets/day_view.dart';
 import 'package:kayicho/shared/theme.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -32,6 +32,7 @@ class Calender extends StatefulWidget {
 }
 
 class _CalenderState extends State<Calender> {
+  void addToCalender() {}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -53,8 +54,15 @@ class _CalenderState extends State<Calender> {
           showModalBottomSheet(
               context: context, builder: (context) => DayView(selectedDay));
         },
+        //TODO: add to calender
+        eventLoader: (day) {
+          if (day.day == 1) {
+            return [Container(color: Colors.red)];
+          }
+          return [];
+        },
+        
       ),
     );
-    ;
   }
 }

@@ -130,8 +130,6 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
         ],
-        // 3 buttons
-        // add button
       ),
     );
   }
