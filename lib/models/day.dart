@@ -1,6 +1,6 @@
 class Day {
   late DateTime date;
-  late bool atebreakfast;
-  late bool atelunch;
-  late bool ateDinner;
+  bool atebreakfast = false;
+  bool atelunch = false;
+  bool ateDinner = false;
 }

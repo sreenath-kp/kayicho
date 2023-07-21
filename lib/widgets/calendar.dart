@@ -36,7 +36,7 @@ class _CalenderState extends State<Calender> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(15, 48, 15, 20),
+      // margin: const EdgeInsets.fromLTRB(15, 48, 15, 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
         color: darkTheme.colorScheme.onPrimary,
@@ -61,7 +61,6 @@ class _CalenderState extends State<Calender> {
           }
           return [];
         },
-        
       ),
     );
   }

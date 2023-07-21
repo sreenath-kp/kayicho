@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kayicho/models/user.dart';
 
@@ -15,13 +16,16 @@ class Auth {
   }
 
   //sign in anonymous
-  Future signInAnon() async {
+  Future<MyUser?> signInAnon(String name) async {
     try {
       UserCredential userCred = await _auth.signInAnonymously();
       User? user = userCred.user;
+      await FirebaseFirestore.instance.collection('users').doc(user!.uid).set({
+        'username': name,
+      });
       return _userFromFirebase(user);
     } catch (e) {
-      print('auth error.........$e');
+      print('auth error...$e');
       return null;
     }
   }

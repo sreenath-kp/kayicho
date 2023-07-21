@@ -3,7 +3,11 @@ class Bill {
   String amount;
   bool isPaid = false;
 
-  Bill({required this.amount, required this.month, required this.isPaid});
+  Bill({
+    required this.amount,
+    required this.month,
+    required this.isPaid,
+  });
 }
 
 List<Bill> billList = [

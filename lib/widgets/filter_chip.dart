@@ -16,10 +16,19 @@ class _MyFilterChipState extends State<MyFilterChip> {
   Widget build(BuildContext context) {
     return FilterChip(
       selected: isSelected,
-      label: SizedBox(width: 75, child: Center(child: Text(widget.labelText))),
+      showCheckmark: false,
+      label: SizedBox(
+          width: 75,
+          child: Center(
+              child: isSelected
+                  ? const Icon(
+                      Icons.check,
+                      size: 16,
+                    )
+                  : Text(widget.labelText))),
       labelStyle: GoogleFonts.inter(
         color: Colors.black,
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: FontWeight.w400,
       ),
       onSelected: (value) {
