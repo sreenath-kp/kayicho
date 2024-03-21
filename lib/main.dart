@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {
-          '/home': (context) => HomeScreen(),
+          '/home': (context) => const HomeScreen(),
           '/bill': (context) => const BillScreen(),
         },
         home: StreamBuilder(
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             if (snapshot.hasData) {
               return HomeScreen();
             }
-            return OnBoardingScreen();
+            return const OnBoardingScreen();
           },
         ),
       ),

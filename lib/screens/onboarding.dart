@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kayicho/provider/google_signin.dart';
-import 'package:kayicho/services/auth.dart';
 import 'package:provider/provider.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -12,13 +11,11 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  final _textController = TextEditingController();
 
   bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
-    final Auth auth = Auth();
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(

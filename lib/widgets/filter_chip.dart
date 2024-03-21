@@ -18,14 +18,16 @@ class _MyFilterChipState extends State<MyFilterChip> {
       selected: isSelected,
       showCheckmark: false,
       label: SizedBox(
-          width: 75,
-          child: Center(
-              child: isSelected
-                  ? const Icon(
-                      Icons.check,
-                      size: 16,
-                    )
-                  : Text(widget.labelText))),
+        width: 80,
+        child: Center(
+          child: isSelected
+              ? const Icon(
+                  Icons.check,
+                  size: 17.3,
+                )
+              : Text(widget.labelText),
+        ),
+      ),
       labelStyle: GoogleFonts.inter(
         color: Colors.black,
         fontSize: 14,

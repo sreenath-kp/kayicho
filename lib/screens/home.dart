@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kayicho/shared/theme.dart';
 import 'package:kayicho/widgets/calendar.dart';
-import 'package:kayicho/widgets/filter_chip.dart';
+import 'package:kayicho/widgets/choice_card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import "package:kayicho/extension.dart";
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
-  final image = Random().nextInt(4) + 1;
+  const HomeScreen({super.key});
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -23,6 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // extract data from provider
+    final user = FirebaseAuth.instance.currentUser!;
+    final name = user.displayName!.split(' ')[0].capitalize();
+    final image = Random().nextInt(4) + 1;
     return Scaffold(
       backgroundColor: darkTheme.colorScheme.background,
       appBar: AppBar(
@@ -34,9 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
             showDialog(
                 context: context,
                 builder: (context) {
+                  // TODO: Style the dialog box
                   return Dialog(
                     child: ListTile(
-                      title: Text('Hi Username'),
+                      title: Text('Hi $name'),
                       trailing: TextButton(
                         onPressed: () {
                           FirebaseAuth.instance.signOut();
@@ -50,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           icon: CircleAvatar(
             radius: 18,
-            backgroundImage: AssetImage('assets/face${widget.image}.png'),
+            backgroundImage: AssetImage('assets/face$image.png'),
           ),
         ),
         title: Text(
@@ -81,46 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //calender
           children: [
             const Calender(),
-            Container(
-              // margin: const EdgeInsets.symmetric(horizontal: 15),
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-                color: darkTheme.colorScheme.onBackground,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 0, 0, 10),
-                    child: Text(
-                      "Today's food",
-                      style: GoogleFonts.inter(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                  // const Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //   children: [
-                  //     MyFilterChip(labelText: 'Breakfast'),
-                  //     MyFilterChip(labelText: 'Lunch'),
-                  //     MyFilterChip(labelText: 'Dinner'),
-                  //   ],
-                  // ),
-                  const ButtonBar(
-                    alignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      MyFilterChip(labelText: 'Breakfast'),
-                      MyFilterChip(labelText: 'Lunch'),
-                      MyFilterChip(labelText: 'Dinner'),
-                    ],
-                  )
-                ],
-              ),
-            ),
+            const ChoiceCard(),
             ElevatedButton(
               style: ButtonStyle(
                 overlayColor: MaterialStateProperty.resolveWith<Color?>(
